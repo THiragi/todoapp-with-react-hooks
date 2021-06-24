@@ -1,0 +1,15 @@
+.item{
+  font-size: 28px;
+  padding: 8px;
+  margin-top: 10px; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.item > button {
+  cursor: pointer;
+  color: white;
+  background-color:lightsalmon;
+  width: 120px;
+  border-radius: 8px;
+}

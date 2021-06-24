@@ -1,0 +1,8 @@
+.list {
+  padding-top:20px;
+  padding-bottom: 120px;
+}
+.list > ol {
+  list-style: none;
+  padding: 0;
+}
