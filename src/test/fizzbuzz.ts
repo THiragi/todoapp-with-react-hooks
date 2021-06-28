@@ -1,25 +1,16 @@
-export class FizzBuzz {
-  public execute(i: number) {
-    if (i % 3 === 0 && i % 5 === 0) return 'FizzBuzz';
-    if (i % 3 === 0) return 'Fizz';
-    if (i % 5 === 0) return 'Buzz';
+export const fizzBuzz = (i: number) => {
+  if (i % 3 === 0 && i % 5 === 0) return 'FizzBuzz';
+  if (i % 3 === 0) return 'Fizz';
+  if (i % 5 === 0) return 'Buzz';
 
-    return i;
-  }
-}
+  return i;
+};
 
-export class FizzBuzzExecutor {
-  private receptor: FizzBuzzReceptor;
-  constructor(receptor: FizzBuzzReceptor) {
-    this.receptor = receptor;
-  }
-  public execute(start: number, end: number) {
-    for (var count = start; count <= end; count++) {
-      this.receptor.execute(count);
-    }
-  }
-}
+export const executor =
+  (fnc: (i: number) => string | number) => (start: number) => (end: number) => {
+    const len = end - start + 1;
+    const args = [...Array(len)].map((_, index) => index + start);
+    const result = args.map((arg) => fnc(arg));
 
-export interface FizzBuzzReceptor {
-  execute(i: number): number | string;
-}
+    return result;
+  };
